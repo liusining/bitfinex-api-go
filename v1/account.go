@@ -65,12 +65,12 @@ func (a *AccountService) KeyPermission() (Permissions, error) {
 }
 
 type SummaryVolume struct {
-	Currency string `json:"curr"`
-	Volume   string `json:"vol"`
+	Currency string  `json:"curr"`
+	Volume   float64 `json:"vol"`
 }
 type SummaryProfit struct {
-	Currency string `json:"curr"`
-	Volume   string `json:"amount"`
+	Currency string  `json:"curr"`
+	Volume   float64 `json:"amount"`
 }
 type Summary struct {
 	TradeVolume   []SummaryVolume `json:"trade_vol_30d"`
