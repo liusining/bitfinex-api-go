@@ -1166,29 +1166,23 @@ func NewFundingLoanSnapshotFromRaw(raw []interface{}) (snap *FundingLoanSnapshot
 
 type FundingTrade struct {
 	ID         int64
-	Symbol     string
 	MTSCreated int64
-	OfferID    int64
 	Amount     float64
 	Rate       float64
 	Period     int64
-	Maker      int64
 }
 
 func NewFundingTradeFromRaw(raw []interface{}) (o *FundingTrade, err error) {
-	if len(raw) < 8 {
+	if len(raw) < 5 {
 		return o, fmt.Errorf("data slice too short for funding trade: %#v", raw)
 	}
 
 	o = &FundingTrade{
 		ID:         i64ValOrZero(raw[0]),
-		Symbol:     sValOrEmpty(raw[1]),
-		MTSCreated: i64ValOrZero(raw[2]),
-		OfferID:    i64ValOrZero(raw[3]),
-		Amount:     f64ValOrZero(raw[4]),
-		Rate:       f64ValOrZero(raw[5]),
-		Period:     i64ValOrZero(raw[6]),
-		Maker:      i64ValOrZero(raw[7]),
+		MTSCreated: i64ValOrZero(raw[1]),
+		Amount:     f64ValOrZero(raw[2]),
+		Rate:       f64ValOrZero(raw[3]),
+		Period:     i64ValOrZero(raw[4]),
 	}
 
 	return
