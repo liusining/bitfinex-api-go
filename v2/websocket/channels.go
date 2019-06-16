@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/bitfinexcom/bitfinex-api-go/v2"
+	"github.com/liusining/bitfinex-api-go/v2"
 )
 
 func (c *Client) handleChannel(msg []byte) error {

@@ -3,7 +3,7 @@ package tests
 /*
 import (
 	"context"
-	"github.com/bitfinexcom/bitfinex-api-go/v2/websocket"
+	"github.com/liusining/bitfinex-api-go/v2/websocket"
 	"testing"
 	"time"
 )

@@ -4,7 +4,7 @@ import (
 "flag"
 "log"
 "os"
-"github.com/bitfinexcom/bitfinex-api-go/v2/rest"
+"github.com/liusining/bitfinex-api-go/v2/rest"
 	"github.com/davecgh/go-spew/spew"
 )
 

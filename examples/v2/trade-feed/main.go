@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"github.com/bitfinexcom/bitfinex-api-go/v2"
-	"github.com/bitfinexcom/bitfinex-api-go/v2/websocket"
+	"github.com/liusining/bitfinex-api-go/v2"
+	"github.com/liusining/bitfinex-api-go/v2/websocket"
 	"log"
 	_ "net/http/pprof"
 )

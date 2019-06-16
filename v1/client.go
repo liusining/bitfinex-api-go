@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/bitfinexcom/bitfinex-api-go/utils"
+	"github.com/liusining/bitfinex-api-go/utils"
 )
 
 const (
