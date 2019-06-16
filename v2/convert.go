@@ -1,8 +1,8 @@
 package bitfinex
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 	"strconv"
 )
 
@@ -52,6 +52,10 @@ func bValOrFalse(i interface{}) bool {
 		return r
 	}
 	return false
+}
+
+func intToBool(i int) bool {
+	return i == 1
 }
 
 func sValOrEmpty(i interface{}) string {

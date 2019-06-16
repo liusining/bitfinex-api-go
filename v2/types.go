@@ -1009,9 +1009,14 @@ func NewCreditFromRaw(raw []interface{}) (o *Credit, err error) {
 	}
 
 	o = &Credit{
-		ID:            i64ValOrZero(raw[0]),
-		Symbol:        sValOrEmpty(raw[1]),
-		Side:          sValOrEmpty(raw[2]),
+		ID:     i64ValOrZero(raw[0]),
+		Symbol: sValOrEmpty(raw[1]),
+		Side: func() string {
+			if iValOrZero(raw[2]) == 1 {
+				return "Lend"
+			}
+			return "Loan"
+		}(),
 		MTSCreated:    i64ValOrZero(raw[3]),
 		MTSUpdated:    i64ValOrZero(raw[4]),
 		Amout:         f64ValOrZero(raw[5]),
@@ -1021,12 +1026,12 @@ func NewCreditFromRaw(raw []interface{}) (o *Credit, err error) {
 		Period:        i64ValOrZero(raw[12]),
 		MTSOpened:     i64ValOrZero(raw[13]),
 		MTSLastPayout: i64ValOrZero(raw[14]),
-		Notify:        bValOrFalse(raw[15]),
-		Hidden:        bValOrFalse(raw[16]),
+		Notify:        intToBool(iValOrZero(raw[15])),
+		Hidden:        intToBool(iValOrZero(raw[16])),
 		Insure:        bValOrFalse(raw[17]),
-		Renew:         bValOrFalse(raw[18]),
+		Renew:         intToBool(iValOrZero(raw[18])),
 		RateReal:      f64ValOrZero(raw[19]),
-		NoClose:       bValOrFalse(raw[20]),
+		NoClose:       intToBool(iValOrZero(raw[20])),
 		PositionPair:  sValOrEmpty(raw[21]),
 	}
 
