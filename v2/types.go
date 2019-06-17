@@ -894,7 +894,7 @@ type Offer struct {
 	Symbol     string
 	MTSCreated int64
 	MTSUpdated int64
-	Amout      float64
+	Amount     float64
 	AmountOrig float64
 	Type       string
 	Flags      interface{}
@@ -918,17 +918,17 @@ func NewOfferFromRaw(raw []interface{}) (o *Offer, err error) {
 		Symbol:     sValOrEmpty(raw[1]),
 		MTSCreated: i64ValOrZero(raw[2]),
 		MTSUpdated: i64ValOrZero(raw[3]),
-		Amout:      f64ValOrZero(raw[4]),
+		Amount:     f64ValOrZero(raw[4]),
 		AmountOrig: f64ValOrZero(raw[5]),
 		Type:       sValOrEmpty(raw[6]),
 		Flags:      raw[9],
 		Status:     OfferStatus(sValOrEmpty(raw[10])),
 		Rate:       f64ValOrZero(raw[14]),
 		Period:     i64ValOrZero(raw[15]),
-		Notify:     bValOrFalse(raw[16]),
-		Hidden:     bValOrFalse(raw[17]),
+		Notify:     intToBool(iValOrZero(raw[16])),
+		Hidden:     intToBool(iValOrZero(raw[17])),
 		Insure:     bValOrFalse(raw[18]),
-		Renew:      bValOrFalse(raw[19]),
+		Renew:      intToBool(iValOrZero(raw[19])),
 		RateReal:   f64ValOrZero(raw[20]),
 	}
 
