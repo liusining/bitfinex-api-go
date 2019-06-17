@@ -987,7 +987,7 @@ type Credit struct {
 	Side          string
 	MTSCreated    int64
 	MTSUpdated    int64
-	Amout         float64
+	Amount        float64
 	Flags         interface{}
 	Status        CreditStatus
 	Rate          float64
@@ -1019,7 +1019,7 @@ func NewCreditFromRaw(raw []interface{}) (o *Credit, err error) {
 		}(),
 		MTSCreated:    i64ValOrZero(raw[3]),
 		MTSUpdated:    i64ValOrZero(raw[4]),
-		Amout:         f64ValOrZero(raw[5]),
+		Amount:        f64ValOrZero(raw[5]),
 		Flags:         raw[6],
 		Status:        CreditStatus(sValOrEmpty(raw[7])),
 		Rate:          f64ValOrZero(raw[11]),
